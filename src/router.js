@@ -11,8 +11,13 @@ const router = Router();
 // /:username/:lessonid - a page for each specific lesson module with every page of the lesson at the same route (need :username/ to force authentication.)
 // / - home page, not signed into any user account.
 
+/* router.get('/', (req, res) => {
+  res.json({ message: 'welcome to our api!' });
+}); */
+
 router.route('/')
   .get(Users.loadHomepagewithoutUser);
+
 router.route('/:username')
   .get(Users.loadHomepageWithUser);
 
