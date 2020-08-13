@@ -18,6 +18,6 @@ TODO: how to deploy the project
 
 ## Authors
 
-TODO: list of authors
+Shane Hewitt
 
 ## Acknowledgments
