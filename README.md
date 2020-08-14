@@ -1,23 +1,41 @@
 # aptiTune
 
-![Team Photo](Insert a Team Photo URL here)
+![Team Photo](teampic.JPG)
 
-TODO: short project description, some sample screenshots or mockups
+Here's the API for *Aptitune*, an interactive sheet-music educational experience. This repository utilizes a server powered by *express*, a database built with *MongoDB*, and *mongoose*-powered structuring. The back-end also implements authentication through Google, keeping each user's progress attached to the user in the form of badges awarded to the users.
 
 ## Architecture
+Technologies:
+- Database: MongoDB
+- Routing: Express.js
+- Mongoose
+Information/Features:
+- Database holds each lesson module
+- Databse also holds user information and user progress on lesson modules
+- Authentication
+  - Through Google
+  - Unique username stored with each user
+  - Username serves as key, loads-in progress badges
+- Notes and rhythm options held in database; server matches from input given from front-end
+- Sends note output back to front-end
 
-TODO:  descriptions of code organization and tools and libraries used
 
 ## Setup
 
-TODO: how to get the project dev environment up and running, npm install etc
+yarn add express body-parser
+yarn add cors path morgan mongoose
 
 ## Deployment
 
-TODO: how to deploy the project
+The api will be deployed on Heroku. 
 
 ## Authors
 
-Shane Hewitt
+Shane Hewitt 
+Jacob Donoghue 
+Sathvi Korlanda 
+Gia Kim 
+Kathy Cui 
+Jordan Sanz 
 
 ## Acknowledgments
