@@ -1,10 +1,14 @@
 import mongoose, { Schema } from 'mongoose';
 
 const UserSchema = new Schema({
-  username: String,
-  lesson1: Boolean,
-  lesson2: Boolean,
-  lesson3: Boolean,
+  username: { type: String, unique: true },
+  email: { type: String, unique: true, lowercase: true },
+  password: { type: String },
+  badges: Array,
+  Lessons: {
+    toDo: Array,
+    completed: Array,
+  },
 }, {
   toObject: { virtuals: true },
   toJSON: { virtuals: true },
