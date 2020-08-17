@@ -4,6 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
+import apiRouter from './router';
 
 // DB Setup
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/aptitune';
@@ -39,6 +40,8 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.send('hello world!');
 });
+
+app.use('/api', apiRouter);
 
 // START THE SERVER
 // =============================================================================
