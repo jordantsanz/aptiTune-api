@@ -1,6 +1,7 @@
 import { Router } from 'express';
-import * as Lessons from './controllers/lesson_controller';
-import * as Users from './controllers/user_controller';
+// import * as Lessons from './controllers/lesson_controller';
+import * as UserController from './controllers/user_controller';
+import { requireAuth, requireSignin } from './services/passport';
 // import * as Notes from './controllers/note_controller';
 
 const router = Router();
@@ -15,18 +16,21 @@ const router = Router();
   res.json({ message: 'welcome to our api!' });
 }); */
 
-router.route('/')
-  .get(Users.loadHomepagewithoutUser);
+// router.route('/')
+//   .get(UserController.loadHomepagewithoutUser);
 
-router.route('/:username')
-  .get(Users.loadHomepageWithUser);
+router.route('/withuser')
+  .get(UserController.loadHomepageWithUser, requireAuth);
 
-router.route('/:username/profile')
-  .get(Users.getUserInfo);
+// router.route('/:username/profile')
+//   .get(requireAuth, UserController.getUserInfo);
 
-router.route('/:username/:lessonid')
-  .get(Lessons.getLessonInfo)
-  .update(Users.finishedLesson);
+// router.route('/:username/:lessonid')
+//   .get(Lessons.getLessonInfo)
+//   .update(UserController.finishedLesson);
+router.post('/signin', requireSignin, UserController.signin);
+
+router.post('/signup', UserController.signup);
 
 /*
 lessonid:
