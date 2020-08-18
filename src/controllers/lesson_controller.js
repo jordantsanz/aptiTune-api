@@ -1,10 +1,12 @@
 import Lesson from '../models/lesson_model';
 
 export const getLesson = (req, res) => {
-  Lesson.findById({ lessonid: req.params.id }).then((response) => {
-    console.log('lesson response in getLesson: ', response);
-    res.json(response);
-  })
+  console.log('getLesson called');
+  Lesson.findById(req.params.id)
+    .then((response) => {
+      console.log('lesson response in getLesson: ', response);
+      res.json(response);
+    })
     .catch((error) => {
       console.log('error in getLesson');
       res.status(500).json({ error });
