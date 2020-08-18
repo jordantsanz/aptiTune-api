@@ -11,11 +11,13 @@ export const getLesson = (req, res) => {
     });
 };
 
-export const makeLesson = (req, res) => {
+/* export const makeLesson = (req, res) => {
   const lesson = new Lesson({
     lessonid: req.body.lessonid,
     pages: [{
-      page_number: req.body.page_number,
+      page_number: req.body.pages.page_number,
+      title: req.body.title,
+      description: String,
       content: {
         title: req.body.title,
         description: req.body.description,
@@ -32,16 +34,16 @@ export const makeLesson = (req, res) => {
       badge: req.body.badge,
     },
     ],
-  });
+  }); */
 
-  lesson.save()
-    .then(() => {
-      console.log('new lesson saved.');
-      res.send('lesson creation worked');
-    })
-    .catch((error) => {
-      res.status(500).json({ error });
-    });
-};
+//   lesson.save()
+//     .then(() => {
+//       console.log('new lesson saved.');
+//       res.send('lesson creation worked');
+//     })
+//     .catch((error) => {
+//       res.status(500).json({ error });
+//     });
+// };
 
 export default getLesson;
