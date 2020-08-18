@@ -2,6 +2,7 @@ import { Router } from 'express';
 // import * as Lessons from './controllers/lesson_controller';
 import * as UserController from './controllers/user_controller';
 import { requireAuth, requireSignin } from './services/passport';
+import * as LessonController from './controllers/lesson_controller';
 // import * as Notes from './controllers/note_controller';
 
 const router = Router();
@@ -32,19 +33,8 @@ router.post('/signin', requireSignin, UserController.signin);
 
 router.post('/signup', UserController.signup);
 
-/*
-lessonid:
-  page1:
-    someinfo:
-  page2:
-    moreinfo:
-
-/*
-username:
-    lesson1:
-    lesson2:
-    lesson...:
-*
-*/
+// add /username/:lessonid later for authentication purposes
+router.route('/:lessonid')
+  .get(LessonController.getLesson);
 
 export default router;
