@@ -3,8 +3,9 @@ import jwt from 'jwt-simple';
 import User from '../models/user_model';
 
 export const getUserInfo = (req, res) => {
+  console.log(req.body);
   User.findOne({ username: req.body.username }).then((result) => {
-    console.log(result);
+    // console.log(result);
     res.send(result);
   })
     .catch((error) => {
