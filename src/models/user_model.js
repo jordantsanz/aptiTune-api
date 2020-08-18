@@ -7,7 +7,6 @@ const UserSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: { type: String },
   badges: Array,
-  toDoLessons: Array,
   completedLessons: Array,
 }, {
   toObject: { virtuals: true },

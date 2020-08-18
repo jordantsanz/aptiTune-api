@@ -13,6 +13,19 @@ export const getLesson = (req, res) => {
     });
 };
 
+export const getLessons = (req, res) => {
+  console.log('getLessons called');
+  Lesson.find()
+    .then((response) => {
+      console.log('lesson response in getLessons: ', response);
+      res.json(response);
+    })
+    .catch((error) => {
+      console.log('error in getLessons');
+      res.status(500).json({ error });
+    });
+};
+
 /* export const makeLesson = (req, res) => {
   const lesson = new Lesson({
     lessonid: req.body.lessonid,

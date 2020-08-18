@@ -23,6 +23,12 @@ const router = Router();
 router.route('/withuser')
   .get(UserController.loadHomepageWithUser, requireAuth);
 
+router.route('withuser/lessons')
+  .get(LessonController.getLessons);
+// add /username/:lessonid later for authentication purposes
+router.route('lessons/:id')
+  .get(LessonController.getLesson);
+
 // router.route('/:username/profile')
 //   .get(requireAuth, UserController.getUserInfo);
 
@@ -32,9 +38,5 @@ router.route('/withuser')
 router.post('/signin', requireSignin, UserController.signin);
 
 router.post('/signup', UserController.signup);
-
-// add /username/:lessonid later for authentication purposes
-router.route('/lessons/:id')
-  .get(LessonController.getLesson);
 
 export default router;
