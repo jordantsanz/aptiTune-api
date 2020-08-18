@@ -34,7 +34,7 @@ router.post('/signin', requireSignin, UserController.signin);
 router.post('/signup', UserController.signup);
 
 // add /username/:lessonid later for authentication purposes
-router.route('/:lessonid')
+router.route('/lessons/:id')
   .get(LessonController.getLesson);
 
 export default router;
