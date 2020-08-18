@@ -35,9 +35,7 @@ export const signup = (req, res, next) => {
       newuser.password = req.body.password;
       newuser.username = req.body.username;
       newuser.badges = [];
-      newuser.toDoLessons = ['rhythm1']; // put all lessons here?
       newuser.completedLessons = [];
-
       newuser.save().then((response) => {
         res.send({ token: tokenForUser(response) });
       });
