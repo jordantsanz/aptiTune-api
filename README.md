@@ -28,6 +28,7 @@ yarn add cors path morgan mongoose
 ## Deployment
 
 The api will be deployed on Heroku. 
+[](https://aptitune-api.herokuapp.com/)
 
 ## Authors
 
