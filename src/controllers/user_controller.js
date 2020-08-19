@@ -5,11 +5,13 @@ import User from '../models/user_model';
 export const getUserInfo = (req, res) => {
   console.log('called getUserInfo.');
   console.log('req', req);
+  console.log('req.query', req.query);
+  console.log('req.query.username', req.query.username);
   console.log('req.body:', req.body);
   console.log('req.username', req.username);
   console.log('req.body.username', req.body.username);
   console.log('username in getUserInfo', req.body.username);
-  User.findOne({ username: req.body.username })
+  User.findOne({ username: req.query.username })
     .then((result) => {
       console.log('return value of getUserInfo', result);
       res.send(result);
