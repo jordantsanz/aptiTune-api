@@ -20,10 +20,10 @@ const router = Router();
 // router.route('/')
 //   .get(UserController.loadHomepagewithoutUser);
 
-router.route('/withuser')
+router.route('/:username')
   .get(UserController.loadHomepageWithUser, requireAuth);
 
-router.route('/withuser/lessons')
+router.route('/:username/lessons')
   .get(LessonController.getLessons);
 // add /username/:lessonid later for authentication purposes
 router.route('/lessons/:id')
