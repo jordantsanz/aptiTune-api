@@ -15,7 +15,7 @@ export const getLesson = (req, res) => {
 
 export const getLessons = (req, res) => {
   console.log('getLessons called');
-  Lesson.find()
+  Lesson.find({})
     .then((response) => {
       console.log('lesson response in getLessons: ', response);
       res.json(response);
