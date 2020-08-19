@@ -5,6 +5,8 @@ import User from '../models/user_model';
 export const getUserInfo = (req, res) => {
   console.log('called getUserInfo.');
   console.log('req.body:', req.body);
+  console.log('req.username', req.username);
+  console.log('req.body.username', req.body.username);
   console.log('username in getUserInfo', req.body.username);
   User.findOne({ username: req.body.username })
     .then((result) => {
