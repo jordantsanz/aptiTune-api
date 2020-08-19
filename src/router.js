@@ -23,7 +23,7 @@ const router = Router();
 router.route('/:username')
   .get(UserController.loadHomepageWithUser, requireAuth);
 
-router.route('/:username/lessons')
+router.route('/lessons')
   .get(LessonController.getLessons);
 // add /username/:lessonid later for authentication purposes
 router.route('/lessons/:id')
