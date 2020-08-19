@@ -4,6 +4,7 @@ import User from '../models/user_model';
 
 export const getUserInfo = (req, res) => {
   console.log('called getUserInfo.');
+  console.log('req', req);
   console.log('req.body:', req.body);
   console.log('req.username', req.username);
   console.log('req.body.username', req.body.username);
