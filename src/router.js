@@ -26,8 +26,8 @@ const router = Router();
 // router.route('/home')
 //  .get(UserController.loadHomePageWithUser);
 
-router.route('/lessons')
-  .get(LessonController.getLessons); // which route?
+// router.route('/lessons')
+// .get(LessonController.getLessons); // which route?
 
 // router.route('/lessons')
 //   .get(LessonController.getLessons);
