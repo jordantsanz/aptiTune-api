@@ -23,14 +23,12 @@ const router = Router();
 
 // switch to /home
 
-// router.route('/home')
-//  .get(UserController.loadHomePageWithUser);
+router.route('/home')
+  .get(UserController.getUserInfo);
 
-// router.route('/lessons')
-// .get(LessonController.getLessons); // which route?
+router.route('/lessons')
+  .get(LessonController.getLessons); // which route?
 
-// router.route('/lessons')
-//   .get(LessonController.getLessons);
 // add /username/:lessonid later for authentication purposes
 router.route('/lessons/:id')
   .get(LessonController.getLesson);
