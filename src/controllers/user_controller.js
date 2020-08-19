@@ -5,7 +5,7 @@ import User from '../models/user_model';
 export const getUserInfo = (req, res) => {
   console.log('called getUserInfo.');
   console.log(req.body);
-  User.findOne({ username: req.body.username }).then((result) => {
+  User.findOne({ username: req.params.username }).then((result) => {
     // console.log(result);
     res.send(result);
   })
@@ -62,11 +62,8 @@ export const addFinishedLesson = (req, res) => {
 
 export const loadHomepageWithUser = (req, res) => {
   console.log('in load home page with user.');
-  User.findOne({ username: req.body.username }).then((result) => {
-    console.log(result);
-    console.log('req: ', req);
-    console.log('req.user: ', req.user);
-    console.log('req.user.username', req.user.username);
+  console.log(`username: ${req.params.username}`);
+  User.findOne({ username: req.params.username }).then((result) => {
     res.send(result);
   })
     .catch((error) => {
