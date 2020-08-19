@@ -23,8 +23,8 @@ const router = Router();
 
 // switch to /home
 
-router.route('/home')
-  .get(UserController.loadHomePageWithUser);
+// router.route('/home')
+//  .get(UserController.loadHomePageWithUser);
 
 router.route('/lessons')
   .get(LessonController.getLessons); // which route?
