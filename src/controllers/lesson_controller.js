@@ -5,7 +5,7 @@ export const getLesson = (req, res) => {
   Lesson.findById(req.params.id)
     .then((response) => {
       console.log('lesson response in getLesson: ', response);
-      res.json(response);
+      res.send(response);
     })
     .catch((error) => {
       console.log('error in getLesson');
@@ -18,7 +18,7 @@ export const getLessons = (req, res) => {
   Lesson.find({})
     .then((response) => {
       console.log('lesson response in getLessons: ', response);
-      res.json(response);
+      res.send(response);
     })
     .catch((error) => {
       console.log('error in getLessons');
@@ -60,5 +60,3 @@ export const getLessons = (req, res) => {
 //       res.status(500).json({ error });
 //     });
 // };
-
-export default getLesson;

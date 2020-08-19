@@ -4,11 +4,13 @@ import User from '../models/user_model';
 
 export const getUserInfo = (req, res) => {
   console.log('called getUserInfo.');
-  console.log(req.body);
-  User.findOne({ username: req.body.username }).then((result) => {
-    // console.log(result);
-    res.send(result);
-  })
+  console.log('req.body:', req.body);
+  console.log('username in getUserInfo', req.body.username);
+  User.findOne({ username: req.body.username })
+    .then((result) => {
+      console.log('return value of getUserInfo', result);
+      res.send(result);
+    })
     .catch((error) => {
       res.status(455).send('cannot load user info');
     });
@@ -57,16 +59,5 @@ export const addFinishedLesson = (req, res) => {
   })
     .catch((error) => {
       res.status(500).json({ error });
-    });
-};
-
-export const loadHomepageWithUser = (req, res) => {
-  console.log('in load home page with user, username:', req.body.username);
-  // console.log(`username: ${req.params.username}`);
-  User.findOne({ username: req.body.username }).then((result) => {
-    res.send(result);
-  })
-    .catch((error) => {
-      res.status(455).send('cannot load user info');
     });
 };
