@@ -62,8 +62,8 @@ export const addFinishedLesson = (req, res) => {
 
 export const loadHomepageWithUser = (req, res) => {
   console.log('in load home page with user.');
-  console.log(`username: ${req.params.username}`);
-  User.findOne({ username: req.params.username }).then((result) => {
+  console.log(`username: ${req.user.username}`);
+  User.findOne({ username: req.user.username }).then((result) => {
     res.send(result);
   })
     .catch((error) => {

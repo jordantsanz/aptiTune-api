@@ -21,7 +21,7 @@ const router = Router();
 //   .get(UserController.loadHomepagewithoutUser);
 
 router.route('/:username')
-  .get(UserController.loadHomepageWithUser, requireAuth)
+  .get(requireAuth, UserController.loadHomepageWithUser)
   .get(LessonController.getLessons);
 
 // router.route('/lessons')
