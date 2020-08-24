@@ -1,7 +1,7 @@
 import Lesson from '../models/lesson_model';
 
 export const getLesson = (req, res) => {
-  console.log('getLesson called');
+  console.log('getLesson called with id', req.params.id);
   Lesson.findById(req.params.id)
     .then((response) => {
       console.log('lesson response in getLesson: ', response);
