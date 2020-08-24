@@ -6,7 +6,7 @@ export const getUserInfo = (req, res) => {
   console.log('called getUserInfo.');
   console.log('req', req);
   console.log('req.user: ', req.user);
-  User.findOne({ username: req.user })
+  User.findOne({ username: req.user.username })
     .then((result) => {
       console.log('return value of getUserInfo', result);
       res.send(result);
