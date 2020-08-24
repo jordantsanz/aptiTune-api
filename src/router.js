@@ -1,6 +1,7 @@
 import { Router } from 'express';
 // import * as Lessons from './controllers/lesson_controller';
 import * as UserController from './controllers/user_controller';
+// eslint-disable-next-line no-unused-vars
 import { requireAuth, requireSignin } from './services/passport';
 import * as LessonController from './controllers/lesson_controller';
 // import * as Notes from './controllers/note_controller';
@@ -20,12 +21,14 @@ const router = Router();
 // router.route('/')
 //   .get(UserController.loadHomepagewithoutUser);
 
-router.route('/:username')
-  .get(requireAuth, UserController.loadHomepageWithUser)
-  .get(LessonController.getLessons);
+// switch to /home
 
-// router.route('/lessons')
-//   .get(LessonController.getLessons);
+router.route('/home')
+  .get(requireAuth, UserController.getUserInfo);
+
+router.route('/lessons')
+  .get(LessonController.getLessons); // which route?
+
 // add /username/:lessonid later for authentication purposes
 router.route('/lessons/:id')
   .get(LessonController.getLesson);
