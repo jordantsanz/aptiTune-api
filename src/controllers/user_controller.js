@@ -21,7 +21,7 @@ export const getUserInfo = (req, res) => {
 export const updateUserInfo = (req, res) => {
   console.log('req.user: ', req.user);
   console.log('UpdateUserInfo called with req.body', req.body);
-  User.findByIdAndUpdate(req.user.id, req.body)
+  User.findByIdAndUpdate(req.user.id, req.body, { new: true })
     .then((result) => {
       console.log('UpdateUserInfo responded with result', result);
       res.send(result);
