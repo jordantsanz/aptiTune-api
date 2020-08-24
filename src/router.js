@@ -24,7 +24,8 @@ const router = Router();
 // switch to /home
 
 router.route('/home')
-  .get(requireAuth, UserController.getUserInfo);
+  .get(requireAuth, UserController.getUserInfo)
+  .put(requireAuth, UserController.updateUserInfo);
 
 router.route('/lessons')
   .get(LessonController.getLessons); // which route?
