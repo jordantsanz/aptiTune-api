@@ -11,7 +11,7 @@ export const getUserInfo = (req, res) => {
   console.log('req.username', req.username);
   console.log('req.body.username', req.body.username);
   console.log('username in getUserInfo', req.body.username);
-  User.findOne({ username: req.query.username })
+  User.findOne({ username: req.user.username })
     .then((result) => {
       console.log('return value of getUserInfo', result);
       res.send(result);
@@ -64,5 +64,16 @@ export const addFinishedLesson = (req, res) => {
   })
     .catch((error) => {
       res.status(500).json({ error });
+    });
+};
+
+export const loadHomepageWithUser = (req, res) => {
+  console.log('in load home page with user.');
+  console.log(`username: ${req.user.username}`);
+  User.findOne({ username: req.user.username }).then((result) => {
+    res.send(result);
+  })
+    .catch((error) => {
+      res.status(455).send('cannot load user info');
     });
 };
