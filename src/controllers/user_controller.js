@@ -6,7 +6,8 @@ export const getUserInfo = (req, res) => {
   // console.log('req', req);
   console.log('getUserInfo called: req.user: ', req.user);
   console.log('req.user.username: ', req.user.username);
-  User.findOne({ username: req.user.username })
+  // switch to find byID
+  User.findById(req.user.id)
     .then((result) => {
       console.log('return value of getUserInfo', result);
       res.send(result);
@@ -16,6 +17,19 @@ export const getUserInfo = (req, res) => {
     });
 };
 
+// update user info
+export const updateUserInfo = (req, res) => {
+  console.log('req.user: ', req.user);
+  console.log('UpdateUserInfo called with req.body', req.body);
+  User.findByIdAndUpdate(req.user.id, req.body)
+    .then((result) => {
+      console.log('UpdateUserInfo responded with result', result);
+      res.send(result);
+    })
+    .catch((error) => {
+      res.status(455).send('cannot load user info');
+    });
+};
 export const signin = (req, res, next) => {
   console.log(req.user.username);
   res.send({ token: tokenForUser(req.user), username: req.user.username });
