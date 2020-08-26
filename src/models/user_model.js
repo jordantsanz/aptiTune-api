@@ -8,6 +8,7 @@ const UserSchema = new Schema({
   password: { type: String },
   badges: Array,
   completedLessons: Array,
+  icon: Number,
 }, {
   toObject: { virtuals: true },
   toJSON: { virtuals: true },

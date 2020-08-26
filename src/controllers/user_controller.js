@@ -54,6 +54,7 @@ export const signup = (req, res, next) => {
       newuser.username = req.body.username;
       newuser.badges = [];
       newuser.completedLessons = [];
+      newuser.icon = 0;
       newuser.save().then((response) => {
         res.send({ token: tokenForUser(response) });
       });
