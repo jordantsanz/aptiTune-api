@@ -52,7 +52,7 @@ export const signup = (req, res, next) => {
       newuser.email = req.body.email;
       newuser.password = req.body.password;
       newuser.username = req.body.username;
-      newuser.badges = [];
+      newuser.badges = [{ name: 'No badges yet!', iconUrl: '' }];
       newuser.completedLessons = [];
       newuser.icon = 0;
       newuser.save().then((response) => {
