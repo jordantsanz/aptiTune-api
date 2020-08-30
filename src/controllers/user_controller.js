@@ -58,6 +58,10 @@ export const signup = (req, res, next) => {
       newuser.save().then((response) => {
         res.send({ token: tokenForUser(response) });
       });
+      newuser.questionsCorrect = [0, 0, 0, 0];
+      newuser.questionsIncorrect = [0, 0, 0, 0];
+      newuser.streak = 0;
+      newuser.lastLogin = 0;
     }
   });
 };
