@@ -9,6 +9,10 @@ const UserSchema = new Schema({
   badges: Array,
   completedLessons: Array,
   icon: Number,
+  questionsCorrect: Array,
+  questionsIncorrect: Array,
+  lastLogin: Number,
+  streak: Number,
 }, {
   toObject: { virtuals: true },
   toJSON: { virtuals: true },
