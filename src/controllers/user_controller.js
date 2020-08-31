@@ -13,7 +13,7 @@ export const getUserInfo = (req, res) => {
       res.send(result);
     })
     .catch((error) => {
-      res.status(455).send('cannot load user info');
+      res.status(456).send('cannot load user info');
     });
 };
 

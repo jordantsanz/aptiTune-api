@@ -34,6 +34,9 @@ router.route('/lessons')
 router.route('/lessons/:id')
   .get(LessonController.getLesson);
 
+router.route('/profile')
+  .get(requireAuth, UserController.getUserInfo);
+
 // router.route('/:username/profile')
 //   .get(requireAuth, UserController.getUserInfo);
 
